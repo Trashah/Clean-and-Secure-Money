@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Gasto | Clean&SecureMoney</title>
+    <link rel="stylesheet" href="../style/individual.registrargasto.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div id="header"></div>
+
+        <!-- Contenido principal - Formulario de registro -->
+        <div class="main-content">
+            <div class="form-container">
+                <div class="form-group">
+                    <label for="concepto">Concepto</label>
+                    <div class="select-wrapper">
+                        <select id="concepto" class="form-control">
+                            <option value="" disabled selected>Concepto</option>
+                            <option value="alimentos">Alimentos</option>
+                            <option value="transporte">Transporte</option>
+                            <option value="entretenimiento">Entretenimiento</option>
+                            <option value="servicios">Servicios</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="fecha">Fecha</label>
+                    <div class="date-wrapper">
+                        <input type="date" id="fecha" class="form-control">
+                        <i class="fas fa-calendar"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="metodo">Método</label>
+                    <div class="select-wrapper">
+                        <select id="metodo" class="form-control">
+                            <option value="" disabled selected>Método de pago</option>
+                            <option value="efectivo">Efectivo</option>
+                            <option value="tarjeta">Tarjeta de crédito/débito</option>
+                            <option value="transferencia">Transferencia</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="monto">Monto</label>
+                    <div class="input-wrapper">
+                        <input type="text" id="monto" class="form-control" placeholder="Monto de pago">
+                    </div>
+                </div>
+                
+                <button class="submit-btn">Registrar gasto</button>
+            </div>
+        </div>
+
+        <!-- Botón flotante para registrar -->
+        <div class="floating-button">
+            <div class="floating-btn">
+                <i class="fas fa-plus"></i>
+                <span>Registrar gasto</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Este script carga el header.html en el div
+        fetch('header.individual.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('header').innerHTML = data;
+          });
+    </script>
+    <script src="../js/individual.registrargasto.js"></script>
+</body>
+</html> 

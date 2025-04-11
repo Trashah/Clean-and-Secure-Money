@@ -1,0 +1,159 @@
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenido principal */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+/* Estilos para contenedor de conceptos */
+.conceptos-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Encabezados */
+.conceptos-headers {
+    display: flex;
+    margin-bottom: 15px;
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.concepto-header {
+    flex: 1;
+    text-align: center;
+}
+
+.limite-header {
+    flex: 1;
+    text-align: center;
+}
+
+/* Lista de conceptos */
+.conceptos-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.concepto-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.concepto-nombre {
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+}
+
+.concepto-monto {
+    flex: 1;
+    text-align: center;
+    padding: 5px;
+}
+
+.concepto-acciones {
+    display: flex;
+    gap: 10px;
+    margin-left: 10px;
+}
+
+.btn-editar, .btn-eliminar {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.btn-editar svg, .btn-eliminar svg {
+    stroke: #666;
+}
+
+.btn-editar:hover svg {
+    stroke: #4A148C;
+}
+
+.btn-eliminar:hover svg {
+    stroke: #e74c3c;
+}
+
+/* Botón de agregar */
+.btn-agregar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: #333;
+    margin: 0 auto;
+}
+
+.btn-agregar-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    background-color: #e1d2f3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #4A148C;
+}
+
+.btn-agregar-texto {
+    font-size: 0.9rem;
+}
+
+.btn-agregar:hover .btn-agregar-icon {
+    background-color: #4A148C;
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .conceptos-headers, .concepto-item {
+        font-size: 0.9rem;
+    }
+    
+    .btn-agregar-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 20px;
+    }
+    
+    .btn-agregar-texto {
+        font-size: 0.8rem;
+    }
+} 

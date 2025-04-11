@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exportar Datos | Clean&SecureMoney</title>
+    <link rel="stylesheet" href="../style/exportar.titular.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div id="header"></div>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <div class="export-container">
+                <h2>Exportar en:</h2>
+                <div class="export-options">
+                    <div class="export-option excel">
+                        <div class="export-icon">
+                            <img src="../pictures/excel-icon.png" alt="Excel" onerror="this.src='https://via.placeholder.com/80x80?text=Excel'">
+                        </div>
+                        <span>Excel</span>
+                    </div>
+                    <div class="export-option pdf">
+                        <div class="export-icon">
+                            <img src="../pictures/pdf-icon.png" alt="PDF" onerror="this.src='https://via.placeholder.com/80x80?text=PDF'">
+                        </div>
+                        <span>PDF</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones flotantes -->
+        <div class="floating-buttons">
+            <div class="floating-btn export-btn">
+                <i class="fas fa-file-export"></i>
+                <span>Exportar</span>
+            </div>
+            <div class="floating-btn add-btn">
+                <i class="fas fa-plus"></i>
+                <span>Registrar gasto</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Este script carga el header.html en el div
+        fetch('header.titular.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('header').innerHTML = data;
+          });
+      </script>
+    <script src="../js/exportar.titular.js"></script>
+</body>
+</html> 

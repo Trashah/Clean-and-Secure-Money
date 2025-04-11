@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean&SecureMoney - Inicio</title>
+    <link rel="stylesheet" href="../style/individual.inicio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div id="header"></div>
+            <!-- Tabla de gastos -->
+            <div class="expenses-table">
+                <div class="table-header">
+                    <div class="column concepto">Concepto</div>
+                    <div class="column fecha">Fecha</div>
+                    <div class="column metodo">Método</div>
+                    <div class="column monto">Monto</div>
+                    <div class="column acciones"></div>
+                </div>
+
+                <!-- Filas de gastos -->
+                <div class="table-row">
+                    <div class="column concepto">
+                        <input type="text" value="Concepto de pago" readonly>
+                    </div>
+                    <div class="column fecha">XX/XX/20XX</div>
+                    <div class="column metodo">Efectivo/Tarjeta</div>
+                    <div class="column monto">$ ####</div>
+                    <div class="column acciones">
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="column concepto">
+                        <input type="text" value="Concepto de pago" readonly>
+                    </div>
+                    <div class="column fecha">XX/XX/20XX</div>
+                    <div class="column metodo">Efectivo/Tarjeta</div>
+                    <div class="column monto">$ ####</div>
+                    <div class="column acciones">
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="column concepto">
+                        <input type="text" value="Concepto de pago" readonly>
+                    </div>
+                    <div class="column fecha">XX/XX/20XX</div>
+                    <div class="column metodo">Efectivo/Tarjeta</div>
+                    <div class="column monto">$ ####</div>
+                    <div class="column acciones">
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="column concepto">
+                        <input type="text" value="Concepto de pago" readonly>
+                    </div>
+                    <div class="column fecha">XX/XX/20XX</div>
+                    <div class="column metodo">Efectivo/Tarjeta</div>
+                    <div class="column monto">$ ####</div>
+                    <div class="column acciones">
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+
+                <div class="table-row">
+                    <div class="column concepto">
+                        <input type="text" value="Concepto de pago" readonly>
+                    </div>
+                    <div class="column fecha">XX/XX/20XX</div>
+                    <div class="column metodo">Efectivo/Tarjeta</div>
+                    <div class="column monto">$ ####</div>
+                    <div class="column acciones">
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="column concepto">
+                        <input type="text" value="Concepto de pago" readonly>
+                    </div>
+                    <div class="column fecha">XX/XX/20XX</div>
+                    <div class="column metodo">Efectivo/Tarjeta</div>
+                    <div class="column monto">$ ####</div>
+                    <div class="column acciones">
+                        <button class="action-btn edit"><i class="fas fa-pencil-alt"></i></button>
+                        <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botones flotantes -->
+            <div class="floating-buttons">
+                <div class="export-container">
+                    <button class="export-btn">
+                        <i class="fas fa-file-export"></i>
+                    </button>
+                    <div class="export-text">Exportar</div>
+                </div>
+                <div class="add-container">
+                    <button class="add-btn">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="add-text">Registrar gasto</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Este script carga el header.html en el div
+        fetch('header.individual.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('header').innerHTML = data;
+          });
+    </script>
+    <script src="../js/individual.inicio.js"></script>
+</body>
+</html> 

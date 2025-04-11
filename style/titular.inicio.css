@@ -1,0 +1,202 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenido principal */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+/* Tabla de gastos */
+.expenses-table {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.table-header {
+    display: flex;
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 16px;
+    color: #333;
+    border-bottom: 1px solid #eee;
+}
+
+.table-row {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    padding: 12px 0;
+}
+
+.column {
+    padding: 0 5px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.concepto {
+    flex: 2;
+}
+
+.concepto input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    padding: 3px;
+    font-size: 14px;
+    color: inherit;
+}
+
+.concepto input:focus {
+    outline: 1px solid #ddd;
+    background-color: #fff;
+}
+
+.fecha {
+    flex: 1;
+    justify-content: center;
+}
+
+.metodo {
+    flex: 1;
+    justify-content: center;
+}
+
+.monto {
+    flex: 0.8;
+    justify-content: flex-end;
+}
+
+.acciones {
+    flex: 0.5;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.action-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #777;
+    padding: 3px;
+}
+
+.action-btn:hover {
+    color: #333;
+}
+
+/* Botones flotantes */
+.floating-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+}
+
+.export-container, .add-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.export-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.add-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #684a8e;
+    color: white;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.export-text, .add-text {
+    font-size: 12px;
+    color: #555;
+    text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 680px) {
+    .app-container {
+        height: 100vh;
+    }
+    
+    .main-content {
+        padding: 0 15px;
+    }
+    
+    .tabs-container {
+        flex-wrap: wrap;
+    }
+    
+    .tab {
+        padding: 8px 0;
+        font-size: 12px;
+        min-width: 50%;
+    }
+    
+    .column {
+        font-size: 13px;
+    }
+    
+    .concepto {
+        flex: 1.5;
+    }
+    
+    .fecha, .metodo {
+        flex: 1;
+    }
+    
+    .action-btn {
+        font-size: 13px;
+    }
+} 

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen Semanal | Clean&SecureMoney</title>
+    <link rel="stylesheet" href="../style/titular.resumen.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <div id="header"></div>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <div class="dashboard-container">
+                <!-- Gráfico de gastos -->
+                <div class="chart-container">
+                    <canvas id="expenseChart"></canvas>
+                </div>
+
+                <!-- Filtro y tabla de gastos -->
+                <div class="expenses-section">
+                    <h2>Filtro de gastos</h2>
+                    
+                    <!-- Filtros de gastos -->
+                    <div class="filters-container">
+                        <div class="filter-button">Concepto</div>
+                        <div class="filter-button">Fechas</div>
+                        <div class="filter-button">Métodos</div>
+                        <div class="filter-button">Monto</div>
+                        <div class="filter-button">Usuario</div>
+                    </div>
+                    
+                    <!-- Tabla de gastos -->
+                    <div class="expenses-table">
+                        <div class="table-row">
+                            <div class="column concepto">Concepto de pago</div>
+                            <div class="column fecha">XX/XX/20XX</div>
+                            <div class="column metodo">Efectivo/Tarjeta</div>
+                            <div class="column monto">$ ####</div>
+                            <div class="column usuario">Nombre.Apellido</div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="column concepto">Concepto de pago</div>
+                            <div class="column fecha">XX/XX/20XX</div>
+                            <div class="column metodo">Efectivo/Tarjeta</div>
+                            <div class="column monto">$ ####</div>
+                            <div class="column usuario">Nombre.Apellido</div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="column concepto">Concepto de pago</div>
+                            <div class="column fecha">XX/XX/20XX</div>
+                            <div class="column metodo">Efectivo/Tarjeta</div>
+                            <div class="column monto">$ ####</div>
+                            <div class="column usuario">Nombre.Apellido</div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="column concepto">Concepto de pago</div>
+                            <div class="column fecha">XX/XX/20XX</div>
+                            <div class="column metodo">Efectivo/Tarjeta</div>
+                            <div class="column monto">$ ####</div>
+                            <div class="column usuario">Nombre.Apellido</div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="column concepto">Concepto de pago</div>
+                            <div class="column fecha">XX/XX/20XX</div>
+                            <div class="column metodo">Efectivo/Tarjeta</div>
+                            <div class="column monto">$ ####</div>
+                            <div class="column usuario">Nombre.Apellido</div>
+                        </div>
+                        
+                        <div class="table-row">
+                            <div class="column concepto">Concepto de pago</div>
+                            <div class="column fecha">XX/XX/20XX</div>
+                            <div class="column metodo">Efectivo/Tarjeta</div>
+                            <div class="column monto">$ ####</div>
+                            <div class="column usuario">Nombre.Apellido</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones flotantes -->
+        <div class="floating-buttons">
+            <div class="export-container">
+                <button class="export-btn">
+                    <i class="fas fa-file-export"></i>
+                </button>
+                <div class="export-text">Exportar</div>
+            </div>
+            <div class="add-container">
+                <button class="add-btn">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="add-text">Registrar gasto</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Este script carga el header.html en el div
+        fetch('header.titular.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('header').innerHTML = data;
+          });
+    </script>
+    <script src="../js/titular.resumen.js"></script>
+</body>
+</html> 

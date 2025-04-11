@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Gasto de Colaborador | Clean&SecureMoney</title>
+    <link rel="stylesheet" href="../style/titular.tc.cambiar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div id="header"></div>
+        <!-- Perfil del colaborador -->
+        <div class="collaborator-profile">
+            <div class="collaborator-avatar">
+                <img src="../pictures/avatar.png" alt="Avatar" onerror="this.src='https://via.placeholder.com/100x100?text=?'">
+            </div>
+            <h2 class="collaborator-name">Nombre(s) Apellidos</h2>
+        </div>
+
+        <!-- Formulario de cambio de gasto -->
+        <div class="edit-expense-form-container">
+            <div class="edit-form">
+                <div class="form-row">
+                    <div class="form-label">Concepto</div>
+                    <div class="form-fields">
+                        <input type="text" class="old-value" value="Concepto antiguo" readonly>
+                        <input type="text" class="new-value" placeholder="Concepto nuevo">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-label">Fecha</div>
+                    <div class="form-fields">
+                        <input type="text" class="old-value" value="Fecha antigua" readonly>
+                        <input type="text" class="new-value" placeholder="Fecha nueva">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-label">Método</div>
+                    <div class="form-fields">
+                        <input type="text" class="old-value" value="Método de pago antiguo" readonly>
+                        <input type="text" class="new-value" placeholder="Método de pago nuevo">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-label">Monto</div>
+                    <div class="form-fields">
+                        <input type="text" class="old-value" value="Monto de pago antiguo" readonly>
+                        <input type="text" class="new-value" placeholder="Monto de pago nuevo">
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button class="apply-button">Aplicar cambios</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones flotantes -->
+        <div class="floating-buttons">
+            <div class="export-container">
+                <button class="export-btn">
+                    <i class="fas fa-file-export"></i>
+                </button>
+                <div class="export-text">Exportar</div>
+            </div>
+            <div class="add-container">
+                <button class="add-btn">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="add-text">Registrar gasto</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Este script carga el header.html en el div
+        fetch('header.titular.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('header').innerHTML = data;
+          });
+    </script>
+    <script src="../js/titular.tc.cambiar.js"></script>
+</body>
+</html> 

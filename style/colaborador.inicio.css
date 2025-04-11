@@ -1,0 +1,158 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Contenido principal */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+/* Tabla de gastos */
+.gastos-table {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.table-header {
+    display: flex;
+    background-color: #f5f5f5;
+    border-radius: 8px 8px 0 0;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.table-row {
+    display: flex;
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+}
+
+.table-row:last-child {
+    border-bottom: none;
+}
+
+.header-cell, .cell {
+    padding: 10px;
+    text-align: left;
+}
+
+.concepto-cell {
+    flex: 2;
+}
+
+.fecha-cell {
+    flex: 1;
+    text-align: center;
+}
+
+.metodo-cell {
+    flex: 1;
+    text-align: center;
+}
+
+.monto-cell {
+    flex: 1;
+    text-align: right;
+}
+
+/* Botones flotantes */
+.floating-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.floating-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.floating-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.export-btn i {
+    color: #333;
+}
+
+.add-btn {
+    background-color: #684a8e;
+    color: white;
+}
+
+.add-btn i {
+    color: white;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .app-container {
+        padding: 15px;
+    }
+    
+    .header-cell, .cell {
+        padding: 8px 5px;
+        font-size: 14px;
+    }
+    
+    .floating-buttons {
+        right: 15px;
+        bottom: 15px;
+    }
+    
+    .floating-btn {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+    
+    .floating-btn i {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .concepto-cell {
+        flex: 1.5;
+    }
+    
+    .fecha-cell, .metodo-cell, .monto-cell {
+        flex: 1;
+    }
+    
+    .metodo-cell {
+        font-size: 12px;
+    }
+} 

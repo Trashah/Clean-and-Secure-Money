@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen Semanal | Control de Gastos</title>
+    <link rel="stylesheet" href="../style/individual.resumen.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <div id="header"></div>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <h1>Resumen Semanal</h1>
+            
+            <!-- Pie Chart -->
+            <div class="chart-container">
+                <h2>Distribución de Gastos</h2>
+                <div class="chart-wrapper">
+                    <canvas id="expensesChart"></canvas>
+                    <div class="chart-center-text">
+                        <h3>$1,850</h3>
+                        <p>Gasto Total</p>
+                    </div>
+                </div>
+                <div class="chart-legend">
+                    <div class="legend-item">
+                        <span class="color-dot" style="background-color: #FFA726;"></span>
+                        <span class="category">Videojuegos</span>
+                        <span class="percentage">20%</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-dot" style="background-color: #66BB6A;"></span>
+                        <span class="category">Comida</span>
+                        <span class="percentage">20%</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-dot" style="background-color: #42A5F5;"></span>
+                        <span class="category">Renta</span>
+                        <span class="percentage">20%</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-dot" style="background-color: #EC407A;"></span>
+                        <span class="category">Luz</span>
+                        <span class="percentage">20%</span>
+                    </div>
+                    <div class="legend-item">
+                        <span class="color-dot" style="background-color: #7E57C2;"></span>
+                        <span class="category">Agua</span>
+                        <span class="percentage">20%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Expenses Filter -->
+            <div class="expenses-filter">
+                <h2>Filtro de Gastos</h2>
+                <div class="filter-options">
+                    <button class="filter-btn active">Semanal</button>
+                    <button class="filter-btn">Mensual</button>
+                    <button class="filter-btn">Anual</button>
+                </div>
+                
+                <div class="expenses-table">
+                    <div class="expense-item">
+                        <div class="expense-date">
+                            <span class="day">15</span>
+                            <span class="month">Nov</span>
+                        </div>
+                        <div class="expense-info">
+                            <h3>Videojuegos</h3>
+                            <p>Steam - Nuevo juego</p>
+                        </div>
+                        <div class="expense-amount">$400</div>
+                    </div>
+                    
+                    <div class="expense-item">
+                        <div class="expense-date">
+                            <span class="day">14</span>
+                            <span class="month">Nov</span>
+                        </div>
+                        <div class="expense-info">
+                            <h3>Comida</h3>
+                            <p>Restaurante con amigos</p>
+                        </div>
+                        <div class="expense-amount">$250</div>
+                    </div>
+                    
+                    <div class="expense-item">
+                        <div class="expense-date">
+                            <span class="day">12</span>
+                            <span class="month">Nov</span>
+                        </div>
+                        <div class="expense-info">
+                            <h3>Renta</h3>
+                            <p>Pago mensual</p>
+                        </div>
+                        <div class="expense-amount">$800</div>
+                    </div>
+                    
+                    <div class="expense-item">
+                        <div class="expense-date">
+                            <span class="day">10</span>
+                            <span class="month">Nov</span>
+                        </div>
+                        <div class="expense-info">
+                            <h3>Luz</h3>
+                            <p>Recibo bimestral</p>
+                        </div>
+                        <div class="expense-amount">$200</div>
+                    </div>
+                    
+                    <div class="expense-item">
+                        <div class="expense-date">
+                            <span class="day">10</span>
+                            <span class="month">Nov</span>
+                        </div>
+                        <div class="expense-info">
+                            <h3>Agua</h3>
+                            <p>Recibo mensual</p>
+                        </div>
+                        <div class="expense-amount">$200</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Floating Buttons -->
+        <div class="floating-buttons">
+            <button class="export-btn">Exportar</button>
+            <button class="add-btn">+ Registrar gasto</button>
+        </div>
+    </div>
+    <script>
+        // Este script carga el header.html en el div
+        fetch('header.individual.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('header').innerHTML = data;
+          });
+    </script>
+    <script src="../js/individual.resumen.js"></script>
+</body>
+</html> 
+

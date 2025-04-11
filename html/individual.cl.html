@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conceptos/Límites | Clean&SecureMoney</title>
+    <link rel="stylesheet" href="../style/individual.cl.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div id="header"></div>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <div class="columns-container">
+                <!-- Columna de conceptos -->
+                <div class="column">
+                    <h2>Conceptos existentes</h2>
+                    <div class="concepts-list">
+                        <div class="concept-item">
+                            <input type="text" value="Concepto #1" readonly>
+                        </div>
+                        <div class="concept-item">
+                            <input type="text" value="Concepto #2" readonly>
+                        </div>
+                        <div class="concept-item">
+                            <input type="text" value="Concepto #3" readonly>
+                        </div>
+                        <div class="concept-item">
+                            <input type="text" value="Concepto #4" readonly>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna de límites -->
+                <div class="column">
+                    <h2>Límite de monto del concepto</h2>
+                    <div class="limits-list">
+                        <div class="limit-item">
+                            <input type="text" value="$ #####" readonly>
+                            <div class="actions">
+                                <button class="edit-btn"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="limit-item">
+                            <input type="text" value="$ #####" readonly>
+                            <div class="actions">
+                                <button class="edit-btn"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="limit-item">
+                            <input type="text" value="NA" readonly>
+                            <div class="actions">
+                                <button class="edit-btn"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="limit-item">
+                            <input type="text" value="NA" readonly>
+                            <div class="actions">
+                                <button class="edit-btn"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón circular para agregar -->
+            <div class="add-container">
+                <button class="add-btn">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <div class="add-text">Agregar concepto/límite</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Este script carga el header.html en el div
+        fetch('header.individual.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('header').innerHTML = data;
+          });
+    </script>
+    <script src="../js/individual.cl.js"></script>
+</body>
+</html> 

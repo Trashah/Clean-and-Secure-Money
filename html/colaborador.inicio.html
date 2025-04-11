@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean&SecureMoney - Colaborador</title>
+    <link rel="stylesheet" href="../style/colaborador.inicio.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <div id="header"></div>
+
+        <!-- Contenido principal -->
+        <div class="main-content">
+            <!-- Tabla de gastos -->
+            <div class="gastos-table">
+                <!-- Cabecera de la tabla -->
+                <div class="table-header">
+                    <div class="header-cell concepto-cell">Concepto</div>
+                    <div class="header-cell fecha-cell">Fecha</div>
+                    <div class="header-cell metodo-cell">Método</div>
+                    <div class="header-cell monto-cell">Monto</div>
+                </div>
+                
+                <!-- Filas de gastos -->
+                <div class="table-row">
+                    <div class="cell concepto-cell">Concepto de pago</div>
+                    <div class="cell fecha-cell">XX/XX/20XX</div>
+                    <div class="cell metodo-cell">Efectivo/Tarjeta</div>
+                    <div class="cell monto-cell">$ ####</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="cell concepto-cell">Concepto de pago</div>
+                    <div class="cell fecha-cell">XX/XX/20XX</div>
+                    <div class="cell metodo-cell">Efectivo/Tarjeta</div>
+                    <div class="cell monto-cell">$ ####</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="cell concepto-cell">Concepto de pago</div>
+                    <div class="cell fecha-cell">XX/XX/20XX</div>
+                    <div class="cell metodo-cell">Efectivo/Tarjeta</div>
+                    <div class="cell monto-cell">$ ####</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="cell concepto-cell">Concepto de pago</div>
+                    <div class="cell fecha-cell">XX/XX/20XX</div>
+                    <div class="cell metodo-cell">Efectivo/Tarjeta</div>
+                    <div class="cell monto-cell">$ ####</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="cell concepto-cell">Concepto de pago</div>
+                    <div class="cell fecha-cell">XX/XX/20XX</div>
+                    <div class="cell metodo-cell">Efectivo/Tarjeta</div>
+                    <div class="cell monto-cell">$ ####</div>
+                </div>
+                
+                <div class="table-row">
+                    <div class="cell concepto-cell">Concepto de pago</div>
+                    <div class="cell fecha-cell">XX/XX/20XX</div>
+                    <div class="cell metodo-cell">Efectivo/Tarjeta</div>
+                    <div class="cell monto-cell">$ ####</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Botones flotantes -->
+        <div class="floating-buttons">
+            <div class="floating-btn export-btn">
+                <i class="fas fa-file-export"></i>
+                <span>Exportar</span>
+            </div>
+            <div class="floating-btn add-btn">
+                <i class="fas fa-plus"></i>
+                <span>Registrar gasto</span>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Este script carga el header.html en el div
+        fetch('header.colaborador.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('header').innerHTML = data;
+          });
+      </script>
+    <script src="../js/colaborador.inicio.js"></script>
+</body>
+</html> 

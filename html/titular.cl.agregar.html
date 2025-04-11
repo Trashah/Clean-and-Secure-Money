@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean&SecureMoney - Conceptos y Límites</title>
+    <link rel="stylesheet" href="../style/titular.cl.agregar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <div id="header"></div>
+        
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <div class="concepto-limite-container">
+                <div class="concepto-row">
+                    <div class="concepto-label">Concepto</div>
+                    <input type="text" placeholder="Concepto de pago nuevo" class="form-control">
+                </div>
+                
+                <div class="monto-row">
+                    <div class="monto-label">Monto</div>
+                    <input type="number" placeholder="Limite de monto de pago del concepto" class="form-control">
+                </div>
+                
+                <button id="aplicar-cambios" class="button primary-button">Aplicar cambios</button>
+            </div>
+        </main>
+    </div>
+    <script>
+        // Este script carga el header.html en el div
+        fetch('header.titular.html')
+          .then(response => response.text())
+          .then(data => {
+            document.getElementById('header').innerHTML = data;
+          });
+    </script>
+    <script src="../js/titular.cl.agregar.js"></script>
+</body>
+</html> 

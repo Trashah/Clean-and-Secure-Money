@@ -1,0 +1,280 @@
+/* Variables globales */
+:root {
+    --primary-color: #5562eb;
+    --secondary-color: #7f8cff;
+    --background-color: #f5f7fa;
+    --card-color: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #757575;
+    --border-radius: 12px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Estilos generales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.app-container {
+    max-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+h1, h2, h3 {
+    color: var(--text-primary);
+    margin-bottom: 16px;
+}
+
+/* Dashboard content */
+.dashboard-content {
+    padding: 16px 0;
+}
+
+.dashboard-content h1 {
+    font-size: 24px;
+    margin-bottom: 24px;
+    color: var(--text-primary);
+}
+
+/* Chart container */
+.chart-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    height: 300px;
+}
+
+canvas#expensesChart {
+    width: 100% !important;
+    height: auto !important;
+}
+
+.chart-center-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.chart-center-text h3 {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+.chart-center-text p {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.chart-legend {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+
+.color-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.percentage {
+    font-weight: 600;
+    margin-left: 4px;
+}
+
+/* Expenses filter */
+.expenses-filter {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.filter-options {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.filter-btn {
+    padding: 8px 16px;
+    background-color: transparent;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    border-color: var(--primary-color);
+}
+
+.filter-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* Expenses table */
+.expenses-table {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.expense-item {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    border-radius: 8px;
+    background-color: rgba(245, 247, 250, 0.5);
+    transition: all 0.3s ease;
+}
+
+.expense-item:hover {
+    background-color: rgba(85, 98, 235, 0.05);
+}
+
+.expense-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 50px;
+    margin-right: 16px;
+}
+
+.day {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.month {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.expense-info {
+    flex-grow: 1;
+}
+
+.expense-info h3 {
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.expense-info p {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.expense-amount {
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-left: auto;
+}
+
+/* Floating buttons */
+.floating-buttons {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    gap: 16px;
+}
+
+.export-btn, .add-btn {
+    padding: 12px 20px;
+    border-radius: 24px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.export-btn {
+    background-color: white;
+    color: var(--primary-color);
+}
+
+.add-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.export-btn:hover, .add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        padding: 16px 0;
+    }
+    
+    .tabs {
+        margin-bottom: 16px;
+    }
+    
+    .tab {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .dashboard-content h1 {
+        font-size: 20px;
+        margin-bottom: 16px;
+    }
+    
+    .chart-container, .expenses-filter {
+        padding: 16px;
+    }
+    
+    .chart-legend {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .floating-buttons {
+        bottom: 16px;
+        right: 16px;
+    }
+    
+    .export-btn, .add-btn {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+} 

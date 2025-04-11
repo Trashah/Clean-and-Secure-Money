@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean&SecureMoney - Registro Familiar</title>
+    <link rel="stylesheet" href="../style/registro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="registro-container">
+        <div class="back-button">
+            <a href="login.html">←</a>
+        </div>
+        <div class="form-container">
+            <h1>Registro</h1>
+            
+            <form class="registro-form">
+                <div class="form-group">
+                    <label>Nombre(s)</label>
+                    <input type="text" placeholder="Nombre(s)">
+                </div>
+                
+                <div class="form-group">
+                    <label>Apellidos</label>
+                    <div class="apellidos-container">
+                        <input type="text" placeholder="Apellido 1">
+                        <input type="text" placeholder="Apellido 2">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Correo electrónico</label>
+                    <input type="email" placeholder="Email">
+                </div>
+                
+                <div class="form-group">
+                    <label>Contraseña</label>
+                    <input type="password" placeholder="Contraseña">
+                </div>
+                
+                <div class="form-group">
+                    <label>Confirmar contraseña</label>
+                    <input type="password" placeholder="Contraseña">
+                </div>
+                
+                <div class="form-group">
+                    <label>Tipo de uso</label>
+                    <div class="radio-container">
+                        <div class="radio-option">
+                            <input type="radio" id="individual" name="tipo-uso" checked onchange="toggleFamilyField(false)">
+                            <label for="individual">Individual</label>
+                        </div>
+                        <div class="radio-option">
+                            <input type="radio" id="familiar" name="tipo-uso" onchange="toggleFamilyField(true)">
+                            <label for="familiar">Familiar</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group" id="familia-field">
+                    <label>Nombre de la familia</label>
+                    <input type="text" id="nombre-familia" placeholder="Nombre-familia">
+                </div>
+                
+                <button type="button" class="registro-button" id="btn-resgistrar" disabled>Registrarse</button>
+                
+                <div class="separator">
+                    <span>O</span>
+                </div>
+                
+                <button type="button" class="google-button">
+                    <img src="google-icon.png" alt="Google logo" class="google-icon">
+                    Regístrate con Google
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var familiarRadio = document.getElementById('familiar');
+                var familiaField = document.getElementById('familia-field');
+                var inputFamilia = familiaField.querySelector('input');
+                var botonRegistrar = document.getElementById('btn-resgistrar');
+        
+                // Mostrar u ocultar el campo de familia
+                function toggleFamilyField(show) {
+                    if (show) {
+                        familiaField.style.display = 'flex';
+                        setTimeout(function () {
+                            familiaField.classList.add('visible');
+                        }, 10);
+                    } else {
+                        familiaField.classList.remove('visible');
+                        setTimeout(function () {
+                            familiaField.style.display = 'none';
+                        }, 300);
+                    }
+        
+                    actualizarEstadoBoton(); // Verificar si se activa el botón
+                }
+        
+                // Activar o desactivar el botón dependiendo del texto
+                function actualizarEstadoBoton() {
+                    if (familiarRadio.checked) {
+                        botonRegistrar.disabled = inputFamilia.value.trim() === '';
+                    } else {
+                        botonRegistrar.disabled = false;
+                    }
+                }
+        
+                // Escuchamos cambios en el campo de texto
+                inputFamilia.addEventListener('input', actualizarEstadoBoton);
+        
+                // Escuchamos cambio del radio "familiar"
+                familiarRadio.addEventListener('change', function () {
+                    toggleFamilyField(true);
+                });
+        
+                // También puedes manejar el otro radio (individual) si lo tienes
+                var individualRadio = document.getElementById('individual');
+                if (individualRadio) {
+                    individualRadio.addEventListener('change', function () {
+                        toggleFamilyField(false);
+                    });
+                }
+        
+                // Botón que redirige si se cumplen las condiciones
+                botonRegistrar.addEventListener('click', function () {
+                    if (!botonRegistrar.disabled) {
+                        // Redirecciona a otra página
+                        window.location.href = '../html/titular.inicio.html'; // <-- cambia por tu destino real
+                    }
+                });
+        
+                // Estado inicial al cargar la página
+                toggleFamilyField(familiarRadio.checked);
+            });
+       
+        
+    </script>
+</body>
+</html> 
