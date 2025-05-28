@@ -1,0 +1,80 @@
+/* Botones flotantes */
+.floating-buttons {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+}
+
+.export-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  
+}
+
+/* Contenedores para cada botón y su texto */
+.export-btn-container, .add-btn-container {
+  position: relative;
+}
+
+.export-btn, .add-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.export-btn {
+  color: #666;
+}
+
+.add-btn {
+  background-color: #684a8e;
+  color: white;
+}
+
+.export-btn:hover, .add-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Estado inicial del texto */
+.export-text, .add-text {
+  position: absolute;
+  right: 52px;
+  top: 21px; /* Exactamente la mitad de la altura del botón (42px / 2) */
+  transform: translateY(-50%);
+  background-color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  color: #333;
+  /* Estado inicial: oculto */
+  opacity: 0;
+  visibility: hidden;
+  /* Transición suave */
+  transition: all 0.3s ease;
+  line-height: 1; /* Asegura que el texto no tenga espacio extra vertical */
+}
+
+/* Mostrar texto cuando se hace hover en el botón */
+.export-btn:hover + .export-text,
+.add-btn:hover + .add-text {
+  /* Estado visible */
+  opacity: 1;
+  visibility: visible;
+  /* Mover un poco a la izquierda */
+  right: 62px;
+  top: 21px; /* Exactamente la mitad de la altura del botón (42px / 2) */
+} 

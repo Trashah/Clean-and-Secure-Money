@@ -1,0 +1,146 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Función helper para verificar autenticación
+    function isAuth() {
+      return request.auth != null;
+    }
+    
+    // Función para verificar si el usuario es miembro de una familia
+    function isFamilyMember(familyId) {
+      return exists(/databases/$(database)/documents/families/$(familyId)/members/$(request.auth.uid));
+    }
+
+    // Función para verificar si el usuario es titular
+    function isTitular() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'titular';
+    }
+
+    // Reglas para usuarios
+    match /users/{userId} {
+      allow read: if isAuth() && (
+        request.auth.uid == userId || 
+        isFamilyMember(resource.data.familyId) ||
+        (resource.data.role == 'colaborador' && resource.data.titularId == request.auth.uid) ||
+        (get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'titular' && resource.data.titularId == request.auth.uid)
+      );
+      allow list: if isAuth() && 
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'titular' &&
+        (resource.data.role == 'colaborador' && resource.data.titularId == request.auth.uid);
+      allow create: if request.auth.uid == userId;
+      allow update: if isAuth() && request.auth.uid == userId;
+      allow delete: if isAuth() && (
+        request.auth.uid == userId || 
+        (isTitular() && resource.data.titularId == request.auth.uid)
+      );
+    }
+
+    // Reglas para colaboradores
+    match /colaboradores/{colaboradorId} {
+      allow read: if isAuth() && (
+        resource.data.userId == request.auth.uid || 
+        resource.data.titularId == request.auth.uid
+      );
+      allow create: if isAuth() && (
+        // El titular puede crear colaboradores
+        request.resource.data.titularId == request.auth.uid
+      );
+      allow update: if isAuth() && (
+        resource.data.titularId == request.auth.uid ||
+        resource.data.userId == request.auth.uid
+      );
+      allow delete: if isAuth() && resource.data.titularId == request.auth.uid;
+    }
+
+    // Reglas para familias
+    match /families/{familyId} {
+      // Permitir creación si el ID coincide con el titular
+      allow create: if isAuth() && request.auth.uid == familyId;
+      // Para lectura y actualización, verificar membresía
+      allow read, update: if isAuth() && (
+        request.auth.uid == familyId || 
+        isFamilyMember(familyId)
+      );
+      allow delete: if isAuth() && request.auth.uid == familyId;
+    }
+
+    // Reglas para gastos
+    match /expenses/{expenseId} {
+      // Permitir creación con validación de datos
+      allow create: if isAuth() && request.resource.data.userId == request.auth.uid;
+      // Para lectura y actualización, verificar propiedad o membresía
+      allow read,list, update, delete: if isAuth() && (
+        resource.data.userId == request.auth.uid || 
+        isFamilyMember(resource.data.familyId)
+      );
+    }
+
+    // Reglas para conceptos
+    match /concepts/{conceptId} {
+      // Permitir creación con validación de datos
+      allow create: if isAuth() && request.resource.data.userId == request.auth.uid;
+      // Para lectura y actualización, verificar propiedad o membresía
+      allow read, update, delete: if isAuth() && (
+        resource.data.userId == request.auth.uid || 
+        isFamilyMember(resource.data.familyId)
+      );
+    }
+
+    // Reglas para invitaciones
+    match /invitations/{invitationId} {
+      // Permitir creación de invitaciones
+      allow create: if isAuth();
+      allow read: if true;
+      allow update, delete: if isAuth() && (
+        resource.data.titularId == request.auth.uid ||
+        resource.data.email == request.auth.token.email
+      );
+    }
+
+    // Reglas para activity_logs
+    match /activity_logs/{logId} {
+      // Permitir creación de logs
+      allow create: if isAuth() && request.resource.data.userId == request.auth.uid;
+      allow read: if isAuth() && (
+        resource.data.userId == request.auth.uid ||
+        isFamilyMember(resource.data.familyId)
+      );
+    }
+
+    // Reglas para notificaciones
+    match /notifications/{notificationId} {
+      // Permitir creación de notificaciones para el usuario
+      allow create: if isAuth() && request.resource.data.userId == request.auth.uid;
+      allow read, update, delete: if isAuth() && resource.data.userId == request.auth.uid;
+    }
+
+    // Reglas para reportes
+    match /reports/{reportId} {
+      // Permitir creación de reportes
+      allow create: if isAuth() && request.resource.data.userId == request.auth.uid;
+      allow read, update, delete: if isAuth() && (
+        resource.data.userId == request.auth.uid ||
+        isFamilyMember(resource.data.familyId)
+      );
+    }
+  }
+}
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isAuth() {
+      return request.auth != null;
+    }
+
+    match /profile_images/{fileName} {
+      allow read: if isAuth();
+      allow create: if isAuth() 
+        && request.resource.size < 5 * 1024 * 1024  // 5MB máximo
+        && request.resource.contentType.matches('image/.*')  // Solo imágenes
+        && fileName.matches(request.auth.uid + '_[0-9]+\\.[a-zA-Z]+');  // Formato correcto del nombre
+      allow delete: if isAuth() 
+        && fileName.matches(request.auth.uid + '_[0-9]+\\.[a-zA-Z]+');  // Solo sus propias imágenes
+    }
+  }
+} 

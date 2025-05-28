@@ -1,0 +1,282 @@
+:root {
+  --background-color: #f5f7fa;
+  --primary-color: #684a8e;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --border-color: #e0e0e0;
+  --hover-color: #f8f9fa;
+  --card-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+}
+
+/* Contenido principal */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  background-color: var(--background-color);
+}
+
+.table-container {
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: var(--card-shadow);
+  padding: 1.5rem;
+  margin: 0 auto;
+  max-width: 1200px;
+  overflow-x: auto;
+}
+
+/* Estilos de la tabla */
+.expenses-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 1rem;
+}
+
+/* Encabezados */
+.expenses-table thead tr {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.expenses-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 500;
+  color: var(--text-primary);
+  background-color: white;
+  font-size: 0.9rem;
+}
+
+.expenses-table th:first-child {
+  padding-left: 1.5rem;
+}
+
+.expenses-table th:last-child {
+  padding-right: 1.5rem;
+  text-align: center;
+}
+
+/* Columnas específicas en el encabezado */
+.expenses-table th:nth-child(1) { width: 35%; } /* Concepto */
+.expenses-table th:nth-child(2) { width: 20%; } /* Fecha */
+.expenses-table th:nth-child(3) { width: 20%; } /* Método */
+.expenses-table th:nth-child(4) { width: 15%; text-align: right; } /* Monto */
+.expenses-table th:nth-child(5) { width: 10%; } /* Acciones */
+
+/* Celdas del cuerpo */
+.expenses-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: middle;
+}
+
+.expenses-table td:first-child {
+  padding-left: 1.5rem;
+}
+
+.expenses-table td:last-child {
+  padding-right: 1.5rem;
+}
+
+/* Input de concepto */
+.concepto-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background-color: transparent;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.concepto-input:hover {
+  border-color: var(--border-color);
+}
+
+.concepto-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  background-color: white;
+}
+
+/* Celdas específicas */
+.fecha-cell {
+  color: var(--text-secondary);
+}
+
+.metodo-cell {
+  color: var(--text-secondary);
+}
+
+.monto-cell {
+  text-align: right;
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+/* Contenedor de botones de acción */
+.acciones-cell {
+  text-align: center;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Botones de acción */
+.action-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 6px;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.action-btn.edit {
+  color: #2196f3;
+}
+
+.action-btn.delete {
+  color: #f44336;
+}
+
+.action-btn:hover {
+  background-color: var(--hover-color);
+}
+
+/* Estado de carga y error */
+.loading, .error {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+}
+
+.error {
+  color: #f44336;
+}
+
+/* No hay gastos */
+.no-expenses {
+  text-align: center;
+  padding: 3rem;
+  color: var(--text-secondary);
+}
+
+.add-first-expense {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.add-first-expense:hover {
+  background-color: #563675;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content-container {
+    padding: 10px;
+  }
+
+  .expenses-table {
+    border-radius: 0;
+  }
+
+  th, td {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .action-btn {
+    padding: 6px;
+  }
+
+  .action-btn i {
+    font-size: 16px;
+  }
+
+  .floating-buttons {
+    bottom: 15px;
+    right: 15px;
+  }
+
+  .export-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .add-btn {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  td.fecha, 
+  td.metodo,
+  th:nth-child(2),
+  th:nth-child(3) {
+    display: none;
+  }
+
+  td.concepto {
+    width: 45%;
+  }
+
+  td.monto {
+    width: 35%;
+  }
+
+  td.acciones {
+    width: 20%;
+  }
+
+  .action-buttons {
+    gap: 8px;
+  }
+
+  .action-btn {
+    padding: 4px;
+  }
+
+  .action-btn i {
+    font-size: 14px;
+  }
+} 
